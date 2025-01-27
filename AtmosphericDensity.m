@@ -1,7 +1,8 @@
-function rho = AtmosphericDensity(h)
+function rho = AtmosphericDensity(h,logdenfit)
 
 %Data is from SMAD tables for density vs. altitude
 %Density is kg/m^3
+%h is in km
 
 % h = [100 150 200 250 300 350 400 450 500]'; %Altitude in km.
 % rho_min = [4.61e-7 1.65e-9 1.78e-10 3.35e-11 8.19e-12 2.34e-12 7.32e-13 2.47e-13 8.98e-14]';
@@ -16,7 +17,16 @@ function rho = AtmosphericDensity(h)
 
 %Density in kg/m^3, altitude in km
 %rho = 0.033546668235535*exp(-0.111567475042664*h);
-rho = 1.256346042915674e-04*exp(-0.074831012308469*h) + 1.207115343455723e-08*exp(-0.023138414635857*h);
+%rho = 1.256346042915674e-04*exp(-0.074831012308469*h) + 1.207115343455723e-08*exp(-0.023138414635857*h);
+
+%Fit to NRLMSISE data from 125-275 km
+%run DensityFit.m to generate the logdenfit function
+%rho = exp(logdenfit(h));
+p1 = -1.552869985730944e-06;
+p2 = 0.001096727357983;
+p3 = -0.279402356386616;
+p4 = 2.538911462133303;
+rho = exp(p1*h^3 + p2*h^2 + p3*h + p4);
 
 end
 
