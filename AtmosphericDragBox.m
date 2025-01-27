@@ -2,7 +2,7 @@ function zdot = AtmosphericDragBox(z, r_e, logdenfit)
 
 %Constants
 density = 8.0; %g/cm^3
-length = 30*2; %cm
+length = 30; %cm
 width = 20; %cm
 thickness = 3.0; %cm
 mass = density*length*width*thickness/1000; %kg
@@ -24,7 +24,7 @@ rho = AtmosphericDensity(alt,logdenfit);
 v = z(4:6);
 w_e = [0 0 2*pi/86164]';
 vrel = v - cross(w_e, r);
-a = -(0.5/mass)*(1e3*rho)*(Cd_n*2*edge_area + Cd_t*2*face_area + Cd_t*2*side_area)*norm(v)*v; %factor of 1000 is to convert length scale to km
+a = -(0.5/mass)*(1e3*rho)*(Cd_n*edge_area + Cd_t*2*face_area + Cd_t*2*side_area)*norm(v)*v; %factor of 1000 is to convert length scale to km
 
 
 

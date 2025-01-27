@@ -4,7 +4,7 @@ r_e = 6371;
 cutoff_alt = 125;
 
 %Define Initial Orbit
-r0 = [275+r_e; 0; 0];
+r0 = [250+r_e; 0; 0];
 r0norm = norm(r0);
 v0norm = sqrt(mu_e/r0norm);
 v0 = [0; 0; v0norm];

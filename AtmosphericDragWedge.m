@@ -4,7 +4,7 @@ function zdot = AtmosphericDragWedge(z, r_e, logdenfit)
 density = 8.0; %g/cm^3
 length = 30; %cm
 width = 20; %cm
-thickness = 3.0; %cm
+thickness = 5.0; %cm
 
 half_angle = atan((thickness/2)/length);
 
@@ -13,8 +13,11 @@ face_area = sqrt(length^2 + (thickness/2)^2)/1e4;
 
 mass = density*length*(thickness/4)*width/1000; %kg
 
-Cd_face = FlatPlateCd(half_angle,9.5,1.0); %borosilicate glass?
-Cd_side = FlatPlateCd(0,9.5,1.0); %borosilicate glass?
+sigma = 1.0; %steel?
+%sigma = 0.3: %borosilicate glass?
+
+Cd_face = FlatPlateCd(half_angle,9.5,sigma); 
+Cd_side = FlatPlateCd(0,9.5,sigma);
 
 %Calculate Altitude
 r = z(1:3);
