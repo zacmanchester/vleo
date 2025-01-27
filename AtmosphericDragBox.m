@@ -1,10 +1,10 @@
 function zdot = AtmosphericDragBox(z, r_e, logdenfit)
 
 %Constants
-density = 8.0; %g/cm^3
+density = 3.0; %g/cm^3
 length = 30; %cm
 width = 20; %cm
-thickness = 3.0; %cm
+thickness = 2.5; %cm
 mass = density*length*width*thickness/1000; %kg
 edge_area = width*(thickness)/1e4; %m^2
 face_area = length*width/1e4;

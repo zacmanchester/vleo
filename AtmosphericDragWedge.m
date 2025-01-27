@@ -13,8 +13,8 @@ face_area = sqrt(length^2 + (thickness/2)^2)/1e4;
 
 mass = density*length*(thickness/4)*width/1000; %kg
 
-sigma = 1.0; %steel?
-%sigma = 0.3: %borosilicate glass?
+%sigma = 1.0; %steel?
+sigma = 0.3; %borosilicate glass?
 
 Cd_face = FlatPlateCd(half_angle,9.5,sigma); 
 Cd_side = FlatPlateCd(0,9.5,sigma);
